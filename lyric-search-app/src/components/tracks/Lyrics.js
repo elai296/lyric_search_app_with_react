@@ -27,7 +27,7 @@ class Lyrics extends Component {
     }
     render(){
         const { track, lyrics} = this.state;
-        console.log(track);
+        console.log("new track:", track);
         if(track === undefined || 
         lyrics === undefined || 
         Object.keys(track).length === 0 || 
@@ -45,9 +45,20 @@ class Lyrics extends Component {
                         <p className="card-text">{lyrics.lyrics_body}</p>
                     </div>
                 </div>
-                <ul className="list-group- mt-3">
-                    <li className="list-group-item"></li>
-                    <strong>Album ID</strong>: {track.album_id}
+                <ul className="list-group mt-3">
+                    <li className="list-group-item">
+                        <strong>Album ID</strong>: {track.album_id}
+                    </li>
+                    <li className="list-group-item">
+                        <strong>Song Genre</strong>: {' '}
+                        {track.primary_genres.music_genre_list[0].music_genre.music_genre_name}
+                    </li>
+                    <li className="list-group-item">
+                        <strong>Explicit Words</strong>: {track.explicit === 0 ? 'No' : 'Yes'}
+                    </li>
+                    <li className="list-group-item">
+                        <strong>Release Date</strong>: {track.first_release_date}
+                    </li>
                 </ul>
             </React.Fragment>
             )
