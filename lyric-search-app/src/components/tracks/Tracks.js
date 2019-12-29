@@ -8,6 +8,7 @@ class Tracks extends Component {
     return (
       <Consumer>
         {value => {
+          console.log("new value:", value)
           const { track_list, heading } = value;
           console.log('abc',track_list);
           // console.log('efg',track_list);
